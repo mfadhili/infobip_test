@@ -13,7 +13,7 @@ app.post('/invoke',function(req,res) {
     console.log('receiving data ...');
     console.log('body is ', req.body);
     console.log('Checking message');
-    console.log(req.body.results[0].message[1]);
+    console.log(req.body.results[0]);
 
     res.send(req.body);
 })
