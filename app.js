@@ -12,6 +12,9 @@ app.use(bodyParser.json());
 app.post('/invoke',function(req,res) {
     console.log('receiving data ...');
     console.log('body is ', req.body);
+    console.log('Checking message');
+    console.log(req.body.results.message);
+
     res.send(req.body);
 })
 
