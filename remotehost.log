@@ -1,0 +1,534 @@
+hili@mfadhili-HP-ProBook-440-G5:~/Desktop/Dev/agrinetcom/learn/infobip_whatsapp/test_101$ ssh root@137.184.238.146
+root@137.184.238.146's password:
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-67-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sun Aug 13 02:35:42 UTC 2023
+
+  System load:  0.0               Users logged in:       1
+  Usage of /:   3.5% of 67.66GB   IPv4 address for eth0: 137.184.238.146
+  Memory usage: 18%               IPv4 address for eth0: 10.48.0.6
+  Swap usage:   0%                IPv4 address for eth1: 10.124.0.3
+  Processes:    111
+
+ * Introducing Expanded Security Maintenance for Applications.
+   Receive updates to over 25,000 software packages with your
+   Ubuntu Pro subscription. Free for personal use.
+
+     https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+58 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Last login: Sun Aug 13 02:23:40 2023 from 41.81.50.99
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~# cd infobip_test/infobip_test/
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+node:events:492
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8005
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at Server.listen (node:net:1887:7)
+    at Function.listen (/root/infobip_test/infobip_test/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/root/infobip_test/infobip_test/app.js:18:5)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1778:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 8005
+}
+
+Node.js v18.17.1
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+node:events:492
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8005
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at Server.listen (node:net:1887:7)
+    at Function.listen (/root/infobip_test/infobip_test/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/root/infobip_test/infobip_test/app.js:18:5)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1778:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 8005
+}
+
+Node.js v18.17.1
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# lsof -i 8005
+lsof: unknown protocol name (8005) in: -i 8005
+lsof 4.93.2
+ latest revision: https://github.com/lsof-org/lsof
+ latest FAQ: https://github.com/lsof-org/lsof/blob/master/00FAQ
+ latest (non-formatted) man page: https://github.com/lsof-org/lsof/blob/master/Lsof.8
+ usage: [-?abhKlnNoOPRtUvVX] [+|-c c] [+|-d s] [+D D] [+|-E] [+|-e s] [+|-f[gG]]
+ [-F [f]] [-g [s]] [-i [i]] [+|-L [l]] [+m [m]] [+|-M] [-o [o]] [-p s]
+ [+|-r [t]] [-s [p:s]] [-S [t]] [-T [t]] [-u s] [+|-w] [-x [fl]] [--] [names]
+Use the ``-h'' option to get more help information.
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# lsof -i:8005
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+node    78688 root   19u  IPv6 885530      0t0  TCP *:8005 (LISTEN)
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# kill 78688
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+Server started! At http://localhost:8005
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T02:39:24.000+0000',
+      messageId: 'ABEGJUcnUBhgAhBY0_oQnBBenFzfiIhxnihy',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T02:39:46.000+0000',
+      messageId: 'ABEGJUcnUBhgAhDcgzE1bArmoPmRJlnkAP8I',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+^C
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# client_loop: send disconnect: Broken pipe
+mfadhili@mfadhili-HP-ProBook-440-G5:~/Desktop/Dev/agrinetcom/learn/infobip_whatsapp/test_101$ ssh root@137.184.238.146
+root@137.184.238.146's password:
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-67-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sun Aug 13 05:43:37 UTC 2023
+
+  System load:  0.0               Users logged in:       0
+  Usage of /:   3.5% of 67.66GB   IPv4 address for eth0: 137.184.238.146
+  Memory usage: 18%               IPv4 address for eth0: 10.48.0.6
+  Swap usage:   0%                IPv4 address for eth1: 10.124.0.3
+  Processes:    110
+
+ * Introducing Expanded Security Maintenance for Applications.
+   Receive updates to over 25,000 software packages with your
+   Ubuntu Pro subscription. Free for personal use.
+
+     https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+58 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Last login: Sun Aug 13 02:35:43 2023 from 41.81.50.99
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~# cd infobip_test/infobip_test/
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 2), reused 4 (delta 2), pack-reused 0
+Unpacking objects: 100% (4/4), 387 bytes | 387.00 KiB/s, done.
+From github.com:mfadhili/infobip_test
+   c99ba3d..c9c344c  main       -> origin/main
+Updating c99ba3d..c9c344c
+Fast-forward
+ .gitignore | 4 +++-
+ app.js     | 3 +++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+Server started! At http://localhost:8005
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T05:44:26.000+0000',
+      messageId: 'ABEGJUcnUBhgAhCjsCKyMeqsBcMwnv9Mz-Ya',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+Checking message
+undefined
+^C
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+Unpacking objects: 100% (3/3), 270 bytes | 270.00 KiB/s, done.
+From github.com:mfadhili/infobip_test
+   c9c344c..e091c22  main       -> origin/main
+Updating c9c344c..e091c22
+Fast-forward
+ app.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+Server started! At http://localhost:8005
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T05:47:34.000+0000',
+      messageId: 'ABEGJUcnUBhgAhADk9oEiyeZdJA5SU4MU5Z6',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+Checking message
+undefined
+^C
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+Server started! At http://localhost:8005
+^C
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+Unpacking objects: 100% (3/3), 256 bytes | 256.00 KiB/s, done.
+From github.com:mfadhili/infobip_test
+   e091c22..09d5aa2  main       -> origin/main
+Updating e091c22..09d5aa2
+Fast-forward
+ app.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+Server started! At http://localhost:8005
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T05:49:21.000+0000',
+      messageId: 'ABEGJUcnUBhgAhAggNyTuJqeOauIUbIYnjKe',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+Checking message
+{
+  from: '254727501860',
+  to: '447860099299',
+  integrationType: 'WHATSAPP',
+  receivedAt: '2023-08-13T05:49:21.000+0000',
+  messageId: 'ABEGJUcnUBhgAhAggNyTuJqeOauIUbIYnjKe',
+  pairedMessageId: null,
+  callbackData: null,
+  message: { text: 'Sema', type: 'TEXT' },
+  contact: { name: 'Mfadhili Gitau Muiruri' },
+  price: { pricePerMessage: 0, currency: 'USD' }
+}
+^C
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+Unpacking objects: 100% (3/3), 265 bytes | 265.00 KiB/s, done.
+From github.com:mfadhili/infobip_test
+   09d5aa2..a1d5e20  main       -> origin/main
+Updating 09d5aa2..a1d5e20
+Fast-forward
+ app.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+Server started! At http://localhost:8005
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T05:51:02.000+0000',
+      messageId: 'ABEGJUcnUBhgAhDdhBCj28DrAERChUhgAsDF',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+Checking message
+{ text: 'Lpml0milkkkklmj', type: 'TEXT' }
+^C
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+Unpacking objects: 100% (3/3), 292 bytes | 292.00 KiB/s, done.
+From github.com:mfadhili/infobip_test
+   a1d5e20..916dd35  main       -> origin/main
+Updating a1d5e20..916dd35
+Fast-forward
+ app.js | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+root@ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-01:~/infobip_test/infobip_test# node app.js
+Server started! At http://localhost:8005
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T05:52:49.000+0000',
+      messageId: 'ABEGJUcnUBhgAhCKq0_aRNpVP33e3ooATW53',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+
+ Checking results
+{
+  from: '254727501860',
+  to: '447860099299',
+  integrationType: 'WHATSAPP',
+  receivedAt: '2023-08-13T05:52:49.000+0000',
+  messageId: 'ABEGJUcnUBhgAhCKq0_aRNpVP33e3ooATW53',
+  pairedMessageId: null,
+  callbackData: null,
+  message: { text: 'O', type: 'TEXT' },
+  contact: { name: 'Mfadhili Gitau Muiruri' },
+  price: { pricePerMessage: 0, currency: 'USD' }
+}
+
+ Checking message
+{ text: 'O', type: 'TEXT' }
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T05:54:27.000+0000',
+      messageId: 'ABEGJUcnUBhgAhB3gAJCW6h-KKBar83XMlob',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+
+ Checking results
+{
+  from: '254727501860',
+  to: '447860099299',
+  integrationType: 'WHATSAPP',
+  receivedAt: '2023-08-13T05:54:27.000+0000',
+  messageId: 'ABEGJUcnUBhgAhB3gAJCW6h-KKBar83XMlob',
+  pairedMessageId: null,
+  callbackData: null,
+  message: {
+    text: '..\n' +
+      '.\n' +
+      '\n' +
+      '..m.m .. m\n' +
+      ' M \n' +
+      '\n' +
+      'Mlm.m..\n' +
+      '.m\n' +
+      '. . .. m\n' +
+      'L mlmm mlm\n' +
+      '. . . .\n' +
+      'Lm.. .l..ml.  .  M lm m .m m. Nl.l\n' +
+      'M. . .l.l . Mm\n' +
+      'M  . . Mm lm  . .m.Mlm.',
+    type: 'TEXT'
+  },
+  contact: { name: 'Mfadhili Gitau Muiruri' },
+  price: { pricePerMessage: 0, currency: 'USD' }
+}
+
+ Checking message
+{
+  text: '..\n' +
+    '.\n' +
+    '\n' +
+    '..m.m .. m\n' +
+    ' M \n' +
+    '\n' +
+    'Mlm.m..\n' +
+    '.m\n' +
+    '. . .. m\n' +
+    'L mlmm mlm\n' +
+    '. . . .\n' +
+    'Lm.. .l..ml.  .  M lm m .m m. Nl.l\n' +
+    'M. . .l.l . Mm\n' +
+    'M  . . Mm lm  . .m.Mlm.',
+  type: 'TEXT'
+}
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T05:54:59.000+0000',
+      messageId: 'ABEGJUcnUBhgAhCQe2stjjmqeA63DNGpsxjp',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+
+ Checking results
+{
+  from: '254727501860',
+  to: '447860099299',
+  integrationType: 'WHATSAPP',
+  receivedAt: '2023-08-13T05:54:59.000+0000',
+  messageId: 'ABEGJUcnUBhgAhCQe2stjjmqeA63DNGpsxjp',
+  pairedMessageId: null,
+  callbackData: null,
+  message: { text: '😚', type: 'TEXT' },
+  contact: { name: 'Mfadhili Gitau Muiruri' },
+  price: { pricePerMessage: 0, currency: 'USD' }
+}
+
+ Checking message
+{ text: '😚', type: 'TEXT' }
+receiving data ...
+body is  {
+  results: [
+    {
+      from: '254727501860',
+      to: '447860099299',
+      integrationType: 'WHATSAPP',
+      receivedAt: '2023-08-13T05:56:12.000+0000',
+      messageId: 'ABEGJUcnUBhgAhDgKSKOvD46OAX9GvyNK_5h',
+      pairedMessageId: null,
+      callbackData: null,
+      message: [Object],
+      contact: [Object],
+      price: [Object]
+    }
+  ],
+  messageCount: 1,
+  pendingMessageCount: 0
+}
+
+ Checking results
+{
+  from: '254727501860',
+  to: '447860099299',
+  integrationType: 'WHATSAPP',
+  receivedAt: '2023-08-13T05:56:12.000+0000',
+  messageId: 'ABEGJUcnUBhgAhDgKSKOvD46OAX9GvyNK_5h',
+  pairedMessageId: null,
+  callbackData: null,
+  message: {
+    url: 'https://api.infobip.com/whatsapp/1/senders/447860099299/media/2041c0bb-0214-4a1f-8c1b-93c1a2f768d4',
+    type: 'IMAGE'
+  },
+  contact: { name: 'Mfadhili Gitau Muiruri' },
+  price: { pricePerMessage: 0, currency: 'USD' }
+}
+
+ Checking message
+{
+  url: 'https://api.infobip.com/whatsapp/1/senders/447860099299/media/2041c0bb-0214-4a1f-8c1b-93c1a2f768d4',
+  type: 'IMAGE'
+}
+
